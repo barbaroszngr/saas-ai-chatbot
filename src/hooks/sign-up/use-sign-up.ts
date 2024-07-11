@@ -1,3 +1,4 @@
+'use client'
 import { useToast } from '@/components/ui/use-toast'
 import { UserRegistrationProps, UserRegistrationSchema } from '@/schemas/auth.schema'
 import { zodResolver } from '@hookform/resolvers/zod'
