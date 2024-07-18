@@ -1,9 +1,6 @@
 import React from 'react'
 import { Card } from '../ui/card'
 //import { useRealTime } from '@/hooks/chatbot/use-chatbot'
-=======
-import { useRealTime } from '@/hooks/chatbot/use-chatbot'
->>>>>>> 9cbbaae1e0bd8257b83692b582df024b5de2b306
 
 type Props = {
   chatRoomId: string
@@ -19,7 +16,6 @@ type Props = {
 }
 
 const RealTimeMode = ({ chatRoomId, setChats }: Props) => {
-<<<<<<< HEAD
  //useRealTime(chatRoomId, setChats)
 
   return (
