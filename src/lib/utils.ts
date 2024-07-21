@@ -13,6 +13,7 @@ export const extractUUIDFromString = (url: string) => {
   )
 }
 
+//WIP: uncomment the pusher server
 export const pusherServer = {}
 /*export const pusherServer = new PusherServer({
   appId: process.env.NEXT_PUBLIC_PUSHER_APP_ID as string,
@@ -22,6 +23,7 @@ export const pusherServer = {}
   useTLS: true,
 })*/
 
+//WIP: uncomment the pusher client
 export const pusherClient = {}
 /*export const pusherClient = new PusherClient(
   process.env.NEXT_PUBLIC_PUSHER_APP_KEY as string,
