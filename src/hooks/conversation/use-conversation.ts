@@ -127,6 +127,7 @@ export const useChatTime = (createdAt: Date, roomId: string) => {
       onScrollToBottom()
     }, [chats, messageWindowRef])
   
+    //WIP: Setup Pusher
     /*useEffect(() => {
       if (chatRoom) {
         pusherClient.subscribe(chatRoom)
@@ -153,7 +154,8 @@ export const useChatTime = (createdAt: Date, roomId: string) => {
         if (message) {
           //remove this
           setChats((prev) => [...prev, message.message[0]])
-  
+          
+          //WIP: Uncomment this when pusher is set
           /*await onRealTimeChat(
             chatRoom!,
             message.message[0].message,
