@@ -145,7 +145,7 @@ export const onGetAllAccountDomains = async () => {
   export const onUpdatePassword = async (password: string) => {
     try {
       const user = await currentUser()
-  
+      //TODO: Başka mail geldiğinde kullanıcı giriş izni yoktur desin. 
       if (!user) return null
       const update = await clerkClient.users.updateUser(user.id, { password })
       if (update) {
