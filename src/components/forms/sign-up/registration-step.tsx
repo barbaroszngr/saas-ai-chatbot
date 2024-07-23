@@ -6,6 +6,7 @@ import TypeSelectionForm from './type-selection-form'
 import dynamic from 'next/dynamic'
 import { Spinner } from '@/components/spinner'
 
+
 const DetailForm = dynamic(() => import('./account-details-form'), {
   ssr: false,
   loading: () => <Spinner />
@@ -27,8 +28,11 @@ const RegistrationFormStep = (props: Props) => {
   const { currentStep } = useAuthContextHook()
   const [onOTP, setOnOTP] = useState<string>('')
   const [onUserType, setOnUserType] = useState<'owner' | 'student'>('owner')
+ 
 
   setValue('otp', onOTP)
+
+  
 
   switch (currentStep) {
     case 1:

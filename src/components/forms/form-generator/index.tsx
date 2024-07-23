@@ -6,6 +6,7 @@ import React from 'react'
 import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form'
 import { Textarea } from '@/components/ui/textarea'
 
+
 type Props = {
   type: 'text' | 'email' | 'password'
   inputType: 'select' | 'input' | 'textarea'
@@ -121,4 +122,5 @@ const FormGenerator = ({
   }
 }
 
-export default FormGenerator
+export default FormGenerator 
+
