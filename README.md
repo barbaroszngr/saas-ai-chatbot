@@ -8,8 +8,9 @@ An advanced AI-powered sales representative chatbot designed to streamline custo
 - [Technologies](#technologies)
 - [Getting Started](#getting-started)
 - [Installation](#installation)
-- [Usage](#usage)
 - [Configuration](#configuration)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
 - [Deployment](#deployment)
 - [Contributing](#contributing)
 - [License](#license)
@@ -39,20 +40,59 @@ An advanced AI-powered sales representative chatbot designed to streamline custo
 
 ## Technologies
 
-- Next.js 14
-- React 18
-- TypeScript
-- Tailwind CSS
-- Prisma (ORM)
-- Stripe (Payments)
-- OpenAI API
-- Clerk (Authentication)
-- Pusher (Real-time functionality)
-- Zod (Schema validation)
-- React Hook Form
-- Radix UI (UI components)
-- Uploadcare (File uploads)
-- Nodemailer (Email functionality)
+### Next.js 14
+Next.js is our chosen React framework for building a fast, SEO-friendly, and highly scalable web application. It provides server-side rendering, static site generation, and API routes, which are crucial for our SaaS platform's performance and functionality.
+
+### React 18
+We use React 18 for building our user interface components. Its latest features, including automatic batching and concurrent rendering, help improve our application's performance and user experience.
+
+### TypeScript
+TypeScript adds static typing to our JavaScript code, enhancing code quality, catching errors early, and improving developer productivity through better tooling support.
+
+### Tailwind CSS
+Tailwind CSS is our utility-first CSS framework. It allows for rapid UI development, consistent styling, and easy customization, which is essential for our white-labeling feature.
+
+### Prisma (ORM)
+Prisma serves as our Object-Relational Mapping (ORM) tool. It simplifies database operations, provides type-safe database access, and supports multiple databases, making it ideal for our scalable SaaS application.
+
+Usage example:
+
+typescript:src/lib/prisma.ts
+startLine: 1
+endLine: 8
+
+
+### Stripe
+We integrate Stripe for secure and flexible payment processing. It handles subscriptions, one-time payments, and connects with our financial dashboard for comprehensive payment management.
+
+Usage example:
+
+typescript:src/actions/stripe/index.ts
+startLine: 12
+endLine: 34
+
+
+### OpenAI API
+The OpenAI API powers our AI chatbot's natural language processing capabilities, enabling intelligent conversations and automated responses.
+
+### Clerk
+Clerk is our chosen authentication and user management solution. We opted for Clerk due to its robust security features, easy integration with Next.js, and support for various authentication methods including OTP.
+
+### Zod
+Zod is our schema declaration and validation library. It ensures data integrity throughout the application, from form inputs to API responses.
+
+### React Hook Form
+We use React Hook Form for efficient, flexible, and extensible forms. It integrates well with our TypeScript and Zod setup for type-safe form handling.
+
+### Radix UI
+Radix UI provides our application with a set of accessible, unstyled UI components. We chose it for its flexibility in styling and strong accessibility support.
+
+### Uploadcare
+Uploadcare handles our file and image upload needs.
+
+typescript:src/hooks/chatbot/use-chatbot.ts
+startLine: 13
+endLine: 15
 
 ## Getting Started
 
@@ -65,28 +105,97 @@ git clone https://github.com/barbaroszngr/saas-ai-chatbot.git
 cd saas-ai-chatbot
 
 2. Install dependencies:
+
+bash
 npm install
 
-3. Set up environment variables:
-   Create a `.env` file in the root directory and add the necessary environment variables (refer to `.env.example` if available).
+3. Install Prisma CLI globally (if not already installed):
 
-4. Set up the database:
-npx prisma generate
-npx prisma db push
+bash
 
-## Usage
-To run the development server:
-npm run dev
+npm install -g prisma
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+4. Set up environment variables:
+   Create a `.env` file in the root directory. We'll add the necessary variables in the Configuration section.
+
 
 ## Configuration
 
-- Stripe: Set up your Stripe account and add the API keys to the environment variables.
-- OpenAI: Configure your OpenAI API key for AI functionality.
-- Clerk: Set up Clerk for authentication and add the necessary credentials.
-- Pusher: Configure Pusher for real-time features.
-- Uploadcare: Set up Uploadcare for file and image uploads.
+1. Database setup:
+   Add the following to your `.env` file:
+
+DATABASE_URL="your_database_connection_string"
+
+  Then run:
+
+bash
+
+npx prisma generate
+npx prisma db push
+
+2. Clerk (Authentication):
+
+Add to `.env`:
+
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="your_clerk_publishable_key"
+CLERK_SECRET_KEY="your_clerk_secret_key"
+NEXT_PUBLIC_CLERK_SIGN_IN_URL="/auth/sign-in"
+NEXT_PUBLIC_CLERK_SIGN_UP_URL="/auth/sign-up"
+
+3. Stripe (Payments):
+Add to `.env`:
+
+STRIPE_SECRET="your_stripe_secret_key"
+NEXT_PUBLIC_STRIPE_PUBLISH_KEY="your_stripe_publishable_key"
+
+4. OpenAI (Chatbot):
+Add to `.env`:
+
+OPEN_AI_KEY="your_openai_api_key"
+
+5. Uploadcare (File uploads):
+Add to `.env`:
+
+NEXT_PUBLIC_UPLOAD_CARE_PUBLIC_KEY="your_uploadcare_public_key"
+UPLOAD_CARE_SECRET_KEY="your_uploadcare_secret_key"
+
+6. Nodemailer (Email functionality):
+Add to `.env`:
+
+NODE_MAILER_EMAIL="your_email@example.com"
+NODE_MAILER_GMAIL_APP_PASSWORD="your_gmail_app_password"
+
+After adding these environment variables, your application should be properly configured to use all the integrated services.
+
+## Usage
+
+To run the development server:
+
+bash
+npm run dev
+
+Open http://localhost:3000 in your browser to see the application.
+
+## Project Structure
+
+The project follows a typical Next.js structure with some custom directories:
+
+
+src/
+
+├── actions/         # Server actions
+├── app/             # Next.js app router pages and layouts
+├── components/      # Reusable React components
+├── context/ # React context providers
+├── hooks/ # Custom React hooks
+├── lib/ # Utility functions and shared logic
+├── schemas/ # Zod schemas for validation
+└── types/ # TypeScript type definitions
+
+Key files:
+- `src/middleware.ts`: Handles authentication middleware
+- `src/lib/prisma.ts`: Prisma client initialization
+- `src/components/chatbot/window.tsx`: Main chatbot interface
 
 ## Deployment
 
@@ -97,6 +206,8 @@ This project is designed to be deployed on Vercel. Follow these steps:
 3. Import the project from your GitHub repository.
 4. Configure the environment variables in Vercel's dashboard.
 5. Deploy the application.
+
+For more detailed instructions on deploying Next.js applications to Vercel, refer to the [official Vercel documentation](https://vercel.com/docs/frameworks/nextjs).
 
 ## Contributing
 
