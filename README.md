@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# SaaS AI Chatbot
+
+An advanced AI-powered sales representative chatbot designed to streamline customer interactions, automate appointments, and process payments seamlessly.
+
+## Table of Contents
+
+- [Features](#features)
+- [Technologies](#technologies)
+- [Getting Started](#getting-started)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [Deployment](#deployment)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Features
+
+- 📅 Automated appointment booking
+- 💻 Easy integration with any website
+- 🧠 Smart question linking for enhanced conversations
+- 💬 Real-time chat support (manual and automated)
+- 🏷️ White-labeling options for customization
+- 🎨 Customizable user interface
+- 🗓️ Calendar widget for easy scheduling
+- 💳 Stripe integration for secure payments
+- ✉️ Simple email marketing tools
+- 💰 Financial dashboard for business insights
+- 💾 Lead capture and management
+- 🔐 Custom login/signup system with OTP
+- 📲 Secure file and image uploads
+- 🔍 SEO-optimized blogging platform
+- 🏗️ Improved architecture for scalability
+- 🖥️ Minimal and stunning user interface
+- ❓ FAQ section for quick answers
+- 🌓 Light/dark mode toggle
+- ⚙️ Feature control settings
+- 🔒 Plan-based feature restrictions
+
+## Technologies
+
+- Next.js 14
+- React 18
+- TypeScript
+- Tailwind CSS
+- Prisma (ORM)
+- Stripe (Payments)
+- OpenAI API
+- Clerk (Authentication)
+- Pusher (Real-time functionality)
+- Zod (Schema validation)
+- React Hook Form
+- Radix UI (UI components)
+- Uploadcare (File uploads)
+- Nodemailer (Email functionality)
 
 ## Getting Started
 
-First, run the development server:
+To get started with the SaaS AI Chatbot, make sure you have Node.js (v14 or later) and npm installed on your system.
 
-```bash
+## Installation
+
+1. Clone the repository:
+git clone https://github.com/barbaroszngr/saas-ai-chatbot.git
+cd saas-ai-chatbot
+
+2. Install dependencies:
+npm install
+
+3. Set up environment variables:
+   Create a `.env` file in the root directory and add the necessary environment variables (refer to `.env.example` if available).
+
+4. Set up the database:
+npx prisma generate
+npx prisma db push
+
+## Usage
+To run the development server:
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Configuration
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Stripe: Set up your Stripe account and add the API keys to the environment variables.
+- OpenAI: Configure your OpenAI API key for AI functionality.
+- Clerk: Set up Clerk for authentication and add the necessary credentials.
+- Pusher: Configure Pusher for real-time features.
+- Uploadcare: Set up Uploadcare for file and image uploads.
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+This project is designed to be deployed on Vercel. Follow these steps:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Push your code to a GitHub repository.
+2. Connect your GitHub account to Vercel.
+3. Import the project from your GitHub repository.
+4. Configure the environment variables in Vercel's dashboard.
+5. Deploy the application.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Contributing
 
-## Deploy on Vercel
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is licensed under the [MIT License](LICENSE).
