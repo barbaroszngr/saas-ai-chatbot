@@ -170,8 +170,9 @@ After adding these environment variables, your application should be properly co
 
 To run the development server:
 
-bash
+``` 
 npm run dev
+```
 
 Open http://localhost:3000 in your browser to see the application.
 
