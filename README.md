@@ -10,7 +10,6 @@ An advanced AI-powered sales representative chatbot designed to streamline custo
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Usage](#usage)
-- [Project Structure](#project-structure)
 - [Deployment](#deployment)
 - [Contributing](#contributing)
 - [License](#license)
@@ -55,22 +54,8 @@ Tailwind CSS is our utility-first CSS framework. It allows for rapid UI developm
 ### Prisma (ORM)
 Prisma serves as our Object-Relational Mapping (ORM) tool. It simplifies database operations, provides type-safe database access, and supports multiple databases, making it ideal for our scalable SaaS application.
 
-Usage example:
-
-typescript:src/lib/prisma.ts
-startLine: 1
-endLine: 8
-
-
 ### Stripe
 We integrate Stripe for secure and flexible payment processing. It handles subscriptions, one-time payments, and connects with our financial dashboard for comprehensive payment management.
-
-Usage example:
-
-typescript:src/actions/stripe/index.ts
-startLine: 12
-endLine: 34
-
 
 ### OpenAI API
 The OpenAI API powers our AI chatbot's natural language processing capabilities, enabling intelligent conversations and automated responses.
@@ -90,10 +75,6 @@ Radix UI provides our application with a set of accessible, unstyled UI componen
 ### Uploadcare
 Uploadcare handles our file and image upload needs.
 
-typescript:src/hooks/chatbot/use-chatbot.ts
-startLine: 13
-endLine: 15
-
 ## Getting Started
 
 To get started with the SaaS AI Chatbot, make sure you have Node.js (v14 or later) and npm installed on your system.
@@ -101,68 +82,86 @@ To get started with the SaaS AI Chatbot, make sure you have Node.js (v14 or late
 ## Installation
 
 1. Clone the repository:
+
+```
 git clone https://github.com/barbaroszngr/saas-ai-chatbot.git
 cd saas-ai-chatbot
+```
 
 2. Install dependencies:
 
-bash
+```
 npm install
+```
 
 3. Install Prisma CLI globally (if not already installed):
 
-bash
-
+```
 npm install -g prisma
 
+```
+
 4. Set up environment variables:
+
    Create a `.env` file in the root directory. We'll add the necessary variables in the Configuration section.
 
 
 ## Configuration
 
 1. Database setup:
+
    Add the following to your `.env` file:
 
+```
 DATABASE_URL="your_database_connection_string"
+```
 
   Then run:
 
-bash
-
+```
 npx prisma generate
 npx prisma db push
+```
 
 2. Clerk (Authentication):
 
 Add to `.env`:
 
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="your_clerk_publishable_key"
+
 CLERK_SECRET_KEY="your_clerk_secret_key"
+
 NEXT_PUBLIC_CLERK_SIGN_IN_URL="/auth/sign-in"
+
 NEXT_PUBLIC_CLERK_SIGN_UP_URL="/auth/sign-up"
 
 3. Stripe (Payments):
+
 Add to `.env`:
 
 STRIPE_SECRET="your_stripe_secret_key"
+
 NEXT_PUBLIC_STRIPE_PUBLISH_KEY="your_stripe_publishable_key"
 
 4. OpenAI (Chatbot):
+
 Add to `.env`:
 
 OPEN_AI_KEY="your_openai_api_key"
 
 5. Uploadcare (File uploads):
+
 Add to `.env`:
 
 NEXT_PUBLIC_UPLOAD_CARE_PUBLIC_KEY="your_uploadcare_public_key"
+
 UPLOAD_CARE_SECRET_KEY="your_uploadcare_secret_key"
 
 6. Nodemailer (Email functionality):
 Add to `.env`:
 
 NODE_MAILER_EMAIL="your_email@example.com"
+
 NODE_MAILER_GMAIL_APP_PASSWORD="your_gmail_app_password"
 
 After adding these environment variables, your application should be properly configured to use all the integrated services.
@@ -176,21 +175,7 @@ npm run dev
 
 Open http://localhost:3000 in your browser to see the application.
 
-## Project Structure
 
-The project follows a typical Next.js structure with some custom directories:
-
-
-src/
-
-├── actions/         # Server actions
-├── app/             # Next.js app router pages and layouts
-├── components/      # Reusable React components
-├── context/ # React context providers
-├── hooks/ # Custom React hooks
-├── lib/ # Utility functions and shared logic
-├── schemas/ # Zod schemas for validation
-└── types/ # TypeScript type definitions
 
 Key files:
 - `src/middleware.ts`: Handles authentication middleware
